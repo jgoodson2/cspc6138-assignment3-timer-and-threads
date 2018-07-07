@@ -22,4 +22,5 @@
     <string name="_9">9</string>
     <string name="backToMenu">Go Back To Main Menu</string>
     <string name="timer">Timer</string>
+    <string name="_00">00</string>
 </resources>
