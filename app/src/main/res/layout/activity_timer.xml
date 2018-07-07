@@ -34,13 +34,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="92dp"
+            android:layout_marginBottom="24dp"
             android:onClick="goToMenu"
             android:text="@string/backToMenu"
             tools:layout_editor_absoluteX="99dp"
             tools:layout_editor_absoluteY="298dp" />
 
         <LinearLayout
+            android:id="@+id/layoutTimer"
             android:layout_width="match_parent"
             android:layout_height="143dp"
             android:layout_alignParentTop="true"
@@ -58,6 +59,7 @@
                     android:id="@+id/btnHoursAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="addHour"
                     android:text="@string/plus" />
 
                 <TextView
@@ -71,6 +73,7 @@
                     android:id="@+id/btnHoursSubtract"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="subtractHour"
                     android:text="@string/minus" />
             </LinearLayout>
 
@@ -84,6 +87,7 @@
                     android:id="@+id/btnMinAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="addMin"
                     android:text="@string/plus" />
 
                 <TextView
@@ -97,6 +101,7 @@
                     android:id="@+id/btnMinSubtract"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="subtractMin"
                     android:text="@string/minus" />
             </LinearLayout>
 
@@ -110,6 +115,7 @@
                     android:id="@+id/btnSecAdd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="addSec"
                     android:text="@string/plus" />
 
                 <TextView
@@ -123,10 +129,43 @@
                     android:id="@+id/btnSecSubtract"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="subtractSec"
                     android:text="@string/minus" />
             </LinearLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layoutTimer"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnClearTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:onClick="clearTimer"
+                android:text="@string/Clear" />
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnClearTimer"
+                android:layout_centerHorizontal="true"
+                android:text="@string/start" />
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnStart"
+                android:layout_centerHorizontal="true"
+                android:text="@string/pause" />
+        </LinearLayout>
+
     </RelativeLayout>
 
     <!--<LinearLayout-->

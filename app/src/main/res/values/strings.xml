@@ -23,4 +23,7 @@
     <string name="backToMenu">Go Back To Main Menu</string>
     <string name="timer">Timer</string>
     <string name="_00">00</string>
+    <string name="Clear">Clear</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
 </resources>
