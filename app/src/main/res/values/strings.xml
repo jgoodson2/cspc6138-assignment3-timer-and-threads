@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">cpsc6138-assignment3-timer-and-threads</string>
+    <string name="goToCalculator">Go to Calculator</string>
+    <string name="goToTimer">Go to Timer</string>
+    <string name="mainActivityHeading"><![CDATA[Jonathon Goodson\nCPSC 6138\nAssignment 3 - Timers and Threads]]></string>
 </resources>
