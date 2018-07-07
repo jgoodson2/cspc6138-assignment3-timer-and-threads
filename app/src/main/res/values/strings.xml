@@ -26,4 +26,5 @@
     <string name="Clear">Clear</string>
     <string name="start">Start</string>
     <string name="pause">Pause</string>
+    <string name="timerFinished">Timer Finished</string>
 </resources>

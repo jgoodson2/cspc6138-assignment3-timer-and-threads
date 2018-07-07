@@ -93,6 +93,13 @@ public class Timer extends AppCompatActivity {
         }
     }
 
+    Handler timerEnd = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Toast.makeText(Timer.this, R.string.timerFinished, Toast.LENGTH_LONG).show();
+        }
+    };
+
     public void startTimer(View view) {
 
         Runnable r = new Runnable() {
@@ -117,27 +124,25 @@ public class Timer extends AppCompatActivity {
         timerThread.start();
     }
 
-    Handler timerEnd = new Handler() {
-        public void handleTimerEnd(Message msg) {
-            System.out.println("timerEnd called");
-            Toast.makeText(Timer.this, "TOAST", Toast.LENGTH_LONG).show();
-        }
-    };
-
     public void decrementTimer() {
         TextView txtHours = (TextView) findViewById(R.id.txtHours);
         TextView txtMin = (TextView) findViewById(R.id.txtMin);
         TextView txtSec = (TextView) findViewById(R.id.txtSec);
         if (Integer.parseInt(txtSec.getText().toString()) > 0) {
             txtSec.setText(String.valueOf(Integer.parseInt(txtSec.getText().toString()) - 1));
+            seconds--;
         } else {
             txtSec.setText("59");
+            seconds = 59;
             if (Integer.parseInt(txtMin.getText().toString()) > 0) {
                 txtMin.setText(String.valueOf(Integer.parseInt(txtMin.getText().toString()) - 1));
+                minutes--;
             } else {
                 txtMin.setText("59");
+                minutes = 59;
                 if (Integer.parseInt(txtHours.getText().toString()) > 0) {
                     txtHours.setText(String.valueOf(Integer.parseInt(txtHours.getText().toString()) - 1));
+                    hours--;
                 }
             }
         }
