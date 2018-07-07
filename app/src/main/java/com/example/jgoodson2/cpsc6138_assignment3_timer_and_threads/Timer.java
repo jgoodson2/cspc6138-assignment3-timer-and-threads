@@ -1,10 +1,13 @@
 package com.example.jgoodson2.cpsc6138_assignment3_timer_and_threads;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Timer extends AppCompatActivity {
 
@@ -87,6 +90,56 @@ public class Timer extends AppCompatActivity {
             seconds--;
             txtSec.setText(String.valueOf(seconds));
             System.out.println("minutes = " + seconds);
+        }
+    }
+
+    public void startTimer(View view) {
+
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                int numSecRemaining = seconds + minutes * 60 + hours * 60 * 60;
+                System.out.println("numSecRemaining = " + numSecRemaining);
+                for (int i = 0; i < numSecRemaining; ++i) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    decrementTimer();
+                }
+                System.out.println("timer done");
+                timerEnd.sendEmptyMessage(0);
+            }
+        };
+
+        Thread timerThread = new Thread(r);
+        timerThread.start();
+    }
+
+    Handler timerEnd = new Handler() {
+        public void handleTimerEnd(Message msg) {
+            System.out.println("timerEnd called");
+            Toast.makeText(Timer.this, "TOAST", Toast.LENGTH_LONG).show();
+        }
+    };
+
+    public void decrementTimer() {
+        TextView txtHours = (TextView) findViewById(R.id.txtHours);
+        TextView txtMin = (TextView) findViewById(R.id.txtMin);
+        TextView txtSec = (TextView) findViewById(R.id.txtSec);
+        if (Integer.parseInt(txtSec.getText().toString()) > 0) {
+            txtSec.setText(String.valueOf(Integer.parseInt(txtSec.getText().toString()) - 1));
+        } else {
+            txtSec.setText("59");
+            if (Integer.parseInt(txtMin.getText().toString()) > 0) {
+                txtMin.setText(String.valueOf(Integer.parseInt(txtMin.getText().toString()) - 1));
+            } else {
+                txtMin.setText("59");
+                if (Integer.parseInt(txtHours.getText().toString()) > 0) {
+                    txtHours.setText(String.valueOf(Integer.parseInt(txtHours.getText().toString()) - 1));
+                }
+            }
         }
     }
 }

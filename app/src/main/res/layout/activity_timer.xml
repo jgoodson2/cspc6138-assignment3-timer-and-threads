@@ -155,6 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnClearTimer"
                 android:layout_centerHorizontal="true"
+                android:onClick="startTimer"
                 android:text="@string/start" />
 
             <Button
