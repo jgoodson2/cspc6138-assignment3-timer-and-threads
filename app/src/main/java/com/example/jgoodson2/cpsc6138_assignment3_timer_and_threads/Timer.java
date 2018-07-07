@@ -100,28 +100,32 @@ public class Timer extends AppCompatActivity {
         }
     };
 
-    public void startTimer(View view) {
-
-        Runnable r = new Runnable() {
-            @Override
-            public void run() {
-                int numSecRemaining = seconds + minutes * 60 + hours * 60 * 60;
-                System.out.println("numSecRemaining = " + numSecRemaining);
-                for (int i = 0; i < numSecRemaining; ++i) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    decrementTimer();
+    Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            int numSecRemaining = seconds + minutes * 60 + hours * 60 * 60;
+            System.out.println("numSecRemaining = " + numSecRemaining);
+            for (int i = 0; i < numSecRemaining; ++i) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                System.out.println("timer done");
-                timerEnd.sendEmptyMessage(0);
+                decrementTimer();
             }
-        };
+            System.out.println("timer done");
+            timerEnd.sendEmptyMessage(0);
+        }
+    };
 
-        Thread timerThread = new Thread(r);
+    Thread timerThread = new Thread(r);
+
+    public void startTimer(View view) {
         timerThread.start();
+    }
+
+    public void pauseTimer(View view) {
+        System.out.println("pause clicked");
     }
 
     public void decrementTimer() {

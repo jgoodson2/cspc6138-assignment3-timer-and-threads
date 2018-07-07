@@ -164,6 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnStart"
                 android:layout_centerHorizontal="true"
+                android:onClick="pauseTimer"
                 android:text="@string/pause" />
         </LinearLayout>
 
