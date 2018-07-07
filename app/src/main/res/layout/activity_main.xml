@@ -21,20 +21,22 @@
             android:gravity="center"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnGoToCalc"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:text="@string/goToCalculator"
             tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="231dp" />
+            tools:layout_editor_absoluteY="231dp"
+            android:onClick="goToCalc"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnGoToTimer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="@string/goToTimer"
             tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="322dp" />
+            tools:layout_editor_absoluteY="322dp"
+            android:onClick="goToTimer"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
