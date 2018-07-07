@@ -17,4 +17,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, Calculator.class);
         startActivity(i);
     }
+
+    public void goToTimer(View view) {
+        Intent i = new Intent(this, Timer.class);
+        startActivity(i);
+    }
 }

@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Calculator" />
+        <activity android:name=".Timer"></activity>
     </application>
 
 </manifest>
